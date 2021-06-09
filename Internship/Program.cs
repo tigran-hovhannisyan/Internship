@@ -8,22 +8,86 @@ namespace Internship
 {
     class Program
     {
+        static void Main(string[] args)
+        {
+            List<User> users = new List<User>
+            {
+                new User("Tigran","Hovhannisyan","+37498591100","password"),
+                new User("Asda","gfH","login","parol"),
+                new User()
+            };
+
+            bool t = true;
+            string name, surname, username, password;
+            do
+            {
+                Console.WriteLine("0: Exit");
+                Console.WriteLine("1: Login");
+                Console.WriteLine("2: Registration");
+                Console.Write("Input number: ");
+                t = int.TryParse(Console.ReadLine(), out int n);
+                if (n == 0)
+                {
+                    break;
+                }
+                if (n == 1)
+                {
+                    Console.Write("Username: ");
+                    username = Console.ReadLine();
+                    Console.Write("Password: ");
+                    password = Console.ReadLine();
+                    foreach (var user in users)
+                    {
+                        if (user.Username == username && user.Password == password)
+                        {
+                            Console.WriteLine($"Bari galust {user.Name} {user.Surname}");
+                            break;
+                        }
+                    }
+                    Console.WriteLine("0: Exit");
+                    Console.WriteLine("1: Logout");
+                    t = int.TryParse(Console.ReadLine(), out n);
+                    if (n == 0)
+                    {
+                        break;
+                    }
+                    if (n == 1)
+                    {
+                        continue;
+                    }
+                }
+                if (n == 2)
+                {
+                    Console.Write("Name: ");
+                    name = Console.ReadLine();
+                    Console.Write("Surname: ");
+                    surname = Console.ReadLine();
+                    Console.Write("Username: ");
+                    username = Console.ReadLine();
+                    Console.Write("Password: ");
+                    password = Console.ReadLine();
+                    users.Add(new User(name, surname, username, password));
+                    continue;
+                }
+            } while (t);
+        }
+
         static public int ArrayLengthInput(string parameterName = "length")
         {
             int n;
             string input;
             do
             {
-                Console.Write("Input array "+ parameterName +": ");
+                Console.Write("Input array " + parameterName + ": ");
                 input = Console.ReadLine();
                 if (!int.TryParse(input, out n) || int.Parse(input) < 1)
                 {
-                    Console.WriteLine("Not valid "+ parameterName +". Try again.");
+                    Console.WriteLine("Not valid " + parameterName + ". Try again.");
                 }
             } while (!int.TryParse(input, out n) || int.Parse(input) < 1);
             return n;
         }
-        
+
         static public int[] ArrayGetter()
         {
             int length = ArrayLengthInput();
@@ -52,7 +116,7 @@ namespace Internship
             }
 
             return arr;
-        } 
+        }
 
         static public int[][] JaggedArrayGetter()
         {
@@ -111,15 +175,15 @@ namespace Internship
             {
                 for (int j = 0; j < arr.GetLength(1); j++)
                 {
-                    if (arr[i,j] % 2 == 0)
+                    if (arr[i, j] % 2 == 0)
                     {
-                        evens[evensIndex++] = arr[i,j];
+                        evens[evensIndex++] = arr[i, j];
                     }
                 }
             }
             return evens;
         }
-        
+
         static public int[] EvenNumbersFromJagged(int[][] arr)
         {
             int jaggedCount = 0;
@@ -141,7 +205,7 @@ namespace Internship
             }
             return evens;
         }
-        
+
         static public int TwoDimensionalMaximum(int[,] arr)
         {
             int max = arr[0, 0];
@@ -149,7 +213,7 @@ namespace Internship
             {
                 for (int j = 0; j < arr.GetLength(1); j++)
                 {
-                    if(arr[i,j] > max)
+                    if (arr[i, j] > max)
                     {
                         max = arr[i, j];
                     }
@@ -157,7 +221,7 @@ namespace Internship
             }
             return max;
         }
-        
+
         static public int JaggedMaximum(int[][] arr)
         {
             int max = arr[0][0];
@@ -165,7 +229,7 @@ namespace Internship
             {
                 for (int j = 0; j < arr[i].Length; j++)
                 {
-                    if(arr[i][j] > max)
+                    if (arr[i][j] > max)
                     {
                         max = arr[i][j];
                     }
@@ -203,92 +267,6 @@ namespace Internship
                 }
             }
             return arr;
-        }
-
-        static void Main(string[] args)
-        {
-            //Xndir A.1
-            //int[,] arr = TwoDimensionalArrayGetter();
-            //int count5 = DividedTo5TwoDimensional(arr);
-            //Console.WriteLine($"There are {count5} numbers fully dividable to 5.");
-
-            //Xndir A.1 jagged
-            //int[][] jagged = JaggedArrayGetter();
-            //int count5 = DividedTo5Jagged(jagged);
-            //Console.WriteLine($"There are {count5} numbers fully dividable to 5.");
-
-            //Xndir A.2
-            //int[,] arr = TwoDimensionalArrayGetter();
-            //int[] evens = EvenNumbersFromTwoDimensional(arr);
-
-            //Xndir A.2 jagged
-            //int[][] jagged = JaggedArrayGetter();
-            //int[] evens = EvenNumbersFromJagged(jagged);
-
-            //Xndir A.3
-            //int[,] arr = TwoDimensionalArrayGetter();
-            //int max = TwoDimensionalMaximum(arr);
-            //Console.WriteLine($"Array's maximum value is {max}");
-
-            //Xndir A.3 jagged
-            //int[][] jagged = JaggedArrayGetter();
-            //int max = JaggedMaximum(jagged);
-            //Console.WriteLine($"Array's maximum value is {max}");
-
-            //Xndir A.4
-            //int[,] arr = TwoDimensionalArrayGetter();
-            //string columnAsString;
-            //int column;
-            //do
-            //{
-            //    Console.Write("Input the column number: ");
-            //    columnAsString = Console.ReadLine();
-            //    int.TryParse(columnAsString, out column);
-            //} while (!int.TryParse(columnAsString,out column) || column < 0 || column > arr.GetLength(0));
-
-            //int max = arr[column, 0];
-            //for (int i = 1; i < arr.GetLength(1); i++)
-            //{
-            //    if (arr[column,i] > max)
-            //    {
-            //        max = arr[column, i];
-            //    }
-            //}
-            //Console.WriteLine($"Array's Column {column}'s maximum value is {max}");
-
-            //Xndir A.4 jagged
-            //int[][] jagged = JaggedArrayGetter();
-            //string columnAsString;
-            //int column;
-            //do
-            //{
-            //    Console.Write("Input the column number: ");
-            //    columnAsString = Console.ReadLine();
-            //    int.TryParse(columnAsString, out column);
-            //} while (!int.TryParse(columnAsString, out column) || column < 0 || column > jagged.Length);
-
-            //int max = jagged[column][0];
-            //for (int i = 1; i < jagged[column].Length; i++)
-            //{
-            //    if (jagged[column][i] > max)
-            //    {
-            //        max = jagged[column][i];
-            //    }
-            //}
-            //Console.WriteLine($"Array's Column {column}'s maximum value is {max}");
-
-            //Xndir A.5
-            //int[] arr = ArrayGetter();
-            //Console.WriteLine($"This array's maximum value is {MaxManual(arr: arr)}");
-
-            //Xndir A.6
-            //int[] arr = ArrayGetter();
-            //arr = SortManual(arr);
-
-            //Xndir B.1
-
-
-            Console.ReadLine();
         }
 
     }
