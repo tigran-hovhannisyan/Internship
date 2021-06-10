@@ -10,66 +10,13 @@ namespace Internship
     {
         static void Main(string[] args)
         {
-            List<User> users = new List<User>
-            {
-                new User("Tigran","Hovhannisyan","+37498591100","password"),
-                new User("Asda","gfH","login","parol"),
-                new User()
-            };
+            Reader reader = new Reader();
+            reader.FName = "Tigran";
+            reader.LName = "Hovhannisyan";
+            reader.TakeBook(4);
+            reader.TakeBook(new Book { Author = "Jiulle Verne", Name = "20000 llos under the water" });
 
-            bool t = true;
-            string name, surname, username, password;
-            do
-            {
-                Console.WriteLine("0: Exit");
-                Console.WriteLine("1: Login");
-                Console.WriteLine("2: Registration");
-                Console.Write("Input number: ");
-                t = int.TryParse(Console.ReadLine(), out int n);
-                if (n == 0)
-                {
-                    break;
-                }
-                if (n == 1)
-                {
-                    Console.Write("Username: ");
-                    username = Console.ReadLine();
-                    Console.Write("Password: ");
-                    password = Console.ReadLine();
-                    foreach (var user in users)
-                    {
-                        if (user.Username == username && user.Password == password)
-                        {
-                            Console.WriteLine($"Bari galust {user.Name} {user.Surname}");
-                            break;
-                        }
-                    }
-                    Console.WriteLine("0: Exit");
-                    Console.WriteLine("1: Logout");
-                    t = int.TryParse(Console.ReadLine(), out n);
-                    if (n == 0)
-                    {
-                        break;
-                    }
-                    if (n == 1)
-                    {
-                        continue;
-                    }
-                }
-                if (n == 2)
-                {
-                    Console.Write("Name: ");
-                    name = Console.ReadLine();
-                    Console.Write("Surname: ");
-                    surname = Console.ReadLine();
-                    Console.Write("Username: ");
-                    username = Console.ReadLine();
-                    Console.Write("Password: ");
-                    password = Console.ReadLine();
-                    users.Add(new User(name, surname, username, password));
-                    continue;
-                }
-            } while (t);
+            Console.ReadLine();
         }
 
         static public int ArrayLengthInput(string parameterName = "length")
