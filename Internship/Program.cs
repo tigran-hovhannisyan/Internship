@@ -10,12 +10,11 @@ namespace Internship
     {
         static void Main(string[] args)
         {
-            Reader reader = new Reader();
-            reader.FName = "Tigran";
-            reader.LName = "Hovhannisyan";
-            reader.TakeBook(4);
-            reader.TakeBook(new Book { Author = "Jiulle Verne", Name = "20000 llos under the water" });
+            Phone phone = new Phone("098591100","Samsung", 4.5);
+            phone.ReceiveCall("Valod");
+            phone.ReceiveCall("Poxos", "077777777");
 
+            phone.SendMessage("088888888", "0555", "0777", "0456", "741529678");
             Console.ReadLine();
         }
 
