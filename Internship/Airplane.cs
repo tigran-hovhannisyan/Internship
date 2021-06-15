@@ -6,12 +6,8 @@ using System.Threading.Tasks;
 
 namespace Internship
 {
-    class Program
+    public class Airplane : AirTransport
     {
-        static void Main(string[] args)
-        {
-
-        }
 
     }
 }

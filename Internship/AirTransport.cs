@@ -6,12 +6,10 @@ using System.Threading.Tasks;
 
 namespace Internship
 {
-    class Program
+    public class AirTransport : Transport
     {
-        static void Main(string[] args)
-        {
+        private int FlyTime { get; set; }
 
-        }
-
+        protected void SOS_Signal() { }
     }
 }

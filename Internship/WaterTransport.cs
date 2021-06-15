@@ -6,12 +6,10 @@ using System.Threading.Tasks;
 
 namespace Internship
 {
-    class Program
+    public class WaterTransport : Transport
     {
-        static void Main(string[] args)
-        {
+        private string Material { get; set; }
 
-        }
-
+        protected void SwimmingSpeed() { }
     }
 }

@@ -6,12 +6,10 @@ using System.Threading.Tasks;
 
 namespace Internship
 {
-    class Program
+    public class LandTransport : Transport
     {
-        static void Main(string[] args)
-        {
+        private int WheelCount { get; set; }
 
-        }
-
+        public void Beep() { }
     }
 }

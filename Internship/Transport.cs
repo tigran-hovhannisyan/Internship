@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace Internship
 {
-    public class Book
+    public class Transport
     {
-        public string Author { get; set; }
-        public string Name { get; set; }
+        private int humanCount { get; set; }
+
+        public void Go() { }
+        public void Stop() { }
     }
 }
