@@ -11,7 +11,8 @@ namespace Internship
         static void Main(string[] args)
         {
 
-        }
 
+            Console.ReadLine();
+        }
     }
 }
