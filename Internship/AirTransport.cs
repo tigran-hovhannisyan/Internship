@@ -10,6 +10,15 @@ namespace Internship
     {
         private int FlyTime { get; set; }
 
+        public sealed override void Go()
+        {
+            Console.WriteLine("AirTransport started going.");
+        }
+        public sealed override void Stop()
+        {
+            Console.WriteLine("AirTransport stopped.");
+        }
+
         protected void SOS_Signal() { }
     }
 }

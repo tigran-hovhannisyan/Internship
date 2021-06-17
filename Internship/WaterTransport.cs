@@ -10,6 +10,15 @@ namespace Internship
     {
         private string Material { get; set; }
 
+        public override void Go()
+        {
+            Console.WriteLine("Water Transport started going.");
+        }
+
+        public override void Stop()
+        {
+            Console.WriteLine("Water Transport stopped.");
+        }
         protected void SwimmingSpeed() { }
     }
 }

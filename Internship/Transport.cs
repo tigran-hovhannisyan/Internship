@@ -10,7 +10,7 @@ namespace Internship
     {
         private int humanCount { get; set; }
 
-        public void Go() { }
-        public void Stop() { }
+        public virtual void Go() { }
+        public virtual void Stop() { }
     }
 }

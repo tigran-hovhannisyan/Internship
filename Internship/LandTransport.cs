@@ -10,6 +10,14 @@ namespace Internship
     {
         private int WheelCount { get; set; }
 
+        public override void Go()
+        {
+            Console.WriteLine("Land Transport started going.");
+        }
+        public override void Stop()
+        {
+            Console.WriteLine("Land Transport stopped.");
+        }
         public void Beep() { }
     }
 }
